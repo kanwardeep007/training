@@ -45,3 +45,31 @@ quantity int );
 
 \dt
 
+directory of postgres - /usr/local/Cellar/postgresql/9.6.2/share/doc/postgresql/html
+
+alter table dress alter column wash_type drop default;
+
+alter table dress alter column wash_type type text; 
+
+alter table dress rename column dry_cleaning to wash_type;
+
+insert into dress (dress_id,name,wash_type,rate) values (1,'shirt','normal',2),(2,'jeans','normal',2.5),(3,'suit','dry_clean',10),(4,'skirt','normal',3),(5,'saari','dry_clean',5);
+
+alter table customer drop column vouch_code;
+
+insert into customer (name,email,phone,password) values ('kanwar','kanwar@gmail.com',981433,'kanwar'),('ram','ram@yahoo.com',765553,'ram'),('sita','sita@gmail.com',333444,'sita'),('robert','robert22@zoho.com',222111,'robert'),('twinkle','twinkle@yahoo.com',111122,'twinkle');
+
+insert into address_table values (1,row('1200','london',111,'abc'),1),(2,row('1201','tronto',222,'abc'),2),(3,row('1202','delhi',333,'abc'),3),(4,row('1205','mumbai',444,'abc'),4),(5,row('1207','pune',555,'abc'),5);
+
+insert into order_item values (1,1,2,2),(2,1,3,3),(3,2,1,6),(4,2,4,1),(5,3,1,2),(6,3,5,1),(7,4,2,2),(8,4,1,1),(9,5,3,1),(10,6,4,4),(11,7,5,5);
+
+
+select order_id,sum(quantity) from order_item group by order_id;
+
+select * from order_item natural join dress;
+
+
+
+
+
+

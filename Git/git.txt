@@ -1,0 +1,11 @@
+to create repo of existing directory 
+git init
+git add --all
+git commit -m 'first commit'
+git add remote training https://github.com/kanwardeep007/training.git
+git push training master
+
+git branch another_branch
+git checkout another_branch
+
+git --version
