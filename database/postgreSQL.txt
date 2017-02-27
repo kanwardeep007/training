@@ -1,0 +1,47 @@
+create table dress(
+postgres(# dress_id serial primary key,
+postgres(# name varchar(30),
+postgres(# description text,
+postgres(# dry_cleaning boolean default false,
+postgres(# rate money);
+
+create table customer(
+postgres(# customer_id serial primary key,
+postgres(# name varchar(30) not null,
+postgres(# vouch_code text,
+postgres(# email varchar(30),
+postgres(# phone int,
+postgres(# password text);
+
+create type address as(
+postgres(# house_number text,
+postgres(# city varchar(30),
+postgres(# postal_code int,
+postgres(# notes text);
+
+create table address_table(
+customer_id int references customer(customer_id),
+address_column address not null,
+address_id serial primary key);
+
+create table order(
+postgres(# order_id int primary key,
+postgres(# address_id int ;
+postgres(# );
+
+create table order_table(
+order_id serial primary key,
+address_id int references address_table(address_id));
+
+create table order_item(
+order_item_id serial primary key,
+order_id int references order_table(order_id),
+dress_id int references dress(dress_id),
+quantity int );
+
+\l
+
+\t
+
+\dt
+
