@@ -68,8 +68,92 @@ select order_id,sum(quantity) from order_item group by order_id;
 
 select * from order_item natural join dress;
 
+select order_id,sum(quantity * rate)as subtotal  from order_item natural join dress group by order_id order by order_id asc;
+
+~~~~~~~~~~~Airplane problem~~~~~~~~~~~~~~ 
+
+insert into flights values (1,'Los Angeles','Chicago',3400,'10:00:00','12:00:00',400),(2,'Los angeles','Hono lulu',3600,'10:33:00','12:22:00',250),(3,'Madison','New York',2500,'10:00:00','12:00:00',180),(4,'Madison','Witch',1110,'9:00:00','11:00:00',300),(5,'Witch','New York',2000,'11:30:00','12:30:00',400);
+
+insert into aircraft (aname,cruisingrange) values ('Boeing',3500),('Boeing',4200),('lateral',3000),('pigeon',3600),('crow',900);
+
+insert into employees (ename,salary) values ('kanwar',75000),('ram',85000),('sita',101000),('tom',88000),('sunita',99000),('rtz',100000),('fear',60000);
+
+insert into certified values (1,1),(1,3),(1,4),(2,2),(2,5),(3,1),(3,5),(4,2);
+eid | ename  |   salary
+-----+--------+-------------
+   1 | kanwar |  $75,000.00
+   2 | ram    |  $85,000.00
+   3 | sita   | $101,000.00
+   4 | tom    |  $88,000.00
+   5 | sunita |  $99,000.00
+   6 | rtz    | $100,000.00
+   7 | fear   |  $60,000.00
+
+    eid | aid
+-----+-----
+   1 |   1
+   1 |   3
+   1 |   4
+   2 |   2
+   2 |   5
+   3 |   1
+   3 |   5
+   4 |   2
+
+   flno |    from_    |    to_    | distance | departs  | arrives  | price
+------+-------------+-----------+----------+----------+----------+-------
+    1 | Los Angeles | Chicago   |     3400 | 10:00:00 | 12:00:00 |   400
+    2 | Los angeles | Hono lulu |     3600 | 10:33:00 | 12:22:00 |   250
+    3 | Madison     | New York  |     2500 | 10:00:00 | 12:00:00 |   180
+    4 | Madison     | Witch     |     1110 | 09:00:00 | 11:00:00 |   300
+    5 | Witch       | New York  |     2000 | 11:30:00 | 12:30:00 |   400
 
 
+    aid |   aname    | cruisingrange
+-----+------------+---------------
+   1 | Boeing     |          3500
+   3 | lateral    |          3000
+   4 | pigeon     |          3600
+   5 | crow       |           900
+   2 | Boeing-233 |          4200
+
+   Answers-
+   a-select distinct(aname) from employees natural join certified natural join aircraft where salary::numeric::float8>80000 except select distinct(aname) from employees natural join certified natural join aircraft where salary::numeric::float8<80000;
+
+   b-select eid,cruisingrange from employees natural join certified natural join aircraft where eid in (select eid from employees natural join certified natural join aircraft group by eid having count(eid)>2) ;
+
+   c-select ename from employees where salary::numeric::float8 < (select min(price) from flights );
+
+   d-select aname,avg(salary::numeric::float8) from aircraft natural join certified natural join employees where ename in (select ename from aircraft where cruisingrange>1000) group by aname;
+
+   e-select distinct(ename) from aircraft natural join certified natural join employees where aname like '%Boeing%';
+
+   f-. Find the aids of all aircraft that can be used on routes from Los Angeles to Chicago. 
+
+   g-select from_,to_ from flights where distance < (select min(cruisingrange) from aircraft natural join certified where eid in( select distinct(eid) from employees natural join certified where salary::numeric::float8 > 100000));
+   h-elect  * from aircraft natural join certified natural join employees where cruisingrange>3000 and ename not in (select distinct (ename) from employees natural join certified natural join aircraft where aname like '%Boeing%');
+
+   i-select flights.departs from flights where from_='Madison' and to_='New York' and arrives < '18:00:00' union select flights1.departs from flights as flights1 inner join flights as flights2 on flights1.from_='Madison' and flights1.to_=flights2.from_ and flights2.to_ = 'New York' and flights2.arrives < '18:00:00'; ~~~~~~~~~~ better way of doing it find 
+
+   j-select pilotsalary.average-totalsalary.average  as difference from (select avg(salary::numeric::float8) as average from employees) as totalsalary, (select avg(salary::numeric::float8) as average from employees where ename in (select distinct(ename) from employees natural join certified)) as pilotsalary;
+   
+   k-select salary from employees where ename not in (select distinct(ename) from certified natural join employees) and salary::numeric::float8 > (select avg(salary::numeric::float8) from employees natural join certified);
+
+   l-select distinct(ename) from employees natural join certified natural join aircraft where cruisingrange>1000 except select distinct(ename) from employees natural join certified natural join aircraft where cruisingrange<1000;
+
+   m-((select distinct(ename) from employees natural join certified natural join aircraft where cruisingrange>1000) except (select distinct(ename) from employees natural join certified natural join aircraft where cruisingrange<1000)) INTERSECT (select distinct(ename) from employees natural join certified group by ename having count(aid)>1);
+
+   n-select distinct(ename) from employees natural join certified natural join aircraft where aname like '%Boeing%' intersect select ename from employees intersect select distinct(ename) from employees natural join certified natural join aircraft where cruisingrange>1000 except select distinct(ename) from employees natural join certified natural join aircraft where cruisingrange<1000;
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
