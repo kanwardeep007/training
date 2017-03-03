@@ -1,3 +1,51 @@
+k=1
+for i in 0..5
+	for j in 1..k
+		print "#{j}"
+		print " "
+	end
+	puts " "
+	k+=1
+end
+
+
+
+
+
+
+
+
+#printing prime numbers between 1 to 5,000
+# k=0
+# prime = 1
+# arr=Array.new()
+# for i in 2..50
+# 	for j in 2...i
+# 		if i%j==0 then
+# 			#nothing
+# 			prime=0
+# 			break
+# 		end
+# 	end
+# 	if prime!=0
+# 		# puts"#{i}"
+# 		arr.insert(k,i)
+# 		k+=1
+# 	end
+# 	prime=1
+# end
+# puts "#{arr}"
+
+# for i in 2...10
+# 	puts"#{i}"
+# end
+
+
+
+
+
+
+
 # ------------------------------15th day
 # t1=Time.new()
 # puts"#{t1}"
@@ -158,43 +206,43 @@
 
 
 # ------------------------------11th day
-# puts"#{Time.new(2002)}"
-# puts"#{Time.new()}"
-# t=Time.new()
-# t1=Time.new()
-# puts"#{t.monday?}"
-# puts"#{t.to_i}"
-# puts"#{t}"
-# y=Time.new(2000,3,15,14,05,22,"+04:00")
-# puts"#{y}"
-# puts"#{"%.7f"%t.to_f}"
-# puts"#{"%.7f"%t1.to_f}"
-# puts"#{t1.ctime}"
-# puts"#{t1.strftime("printed on %T %#B %m/%d/%Y")}"
-# begin
-# 	raise "exception message"
-# rescue Exception => e
-# 	puts e.message
-# 	puts e.backtrace.inspect
+puts"#{Time.new(2002)}"
+puts"#{Time.new()}"
+t=Time.new()
+t1=Time.new()
+puts"#{t.monday?}"
+puts"#{t.to_i}"
+puts"#{t}"
+y=Time.new(2000,3,15,14,05,22,"+04:00")
+puts"#{y}"
+puts"#{"%.7f"%t.to_f}"
+puts"#{"%.7f"%t1.to_f}"
+puts"#{t1.ctime}"
+puts"#{t1.strftime("printed on %T %#B %m/%d/%Y")}"
+begin
+	raise "exception message"
+rescue Exception => e
+	puts e.message
+	puts e.backtrace.inspect
 	
-# end
+end
 
-# def promptAndGet(prompt)
-# 	print prompt
-# 	res=readline.chomp
-# 	throw :quitreq if res == "!"
-# 	return res
-# end
-# catch :quitreq do
-# 	name=promptAndGet("name:")
-# 	age=promptAndGet("age:")
-# 	sex=promptAndGet("sex:")
+def promptAndGet(prompt)
+	print prompt
+	res=readline.chomp
+	throw :quitreq if res == "!"
+	return res
+end
+catch :quitreq do
+	name=promptAndGet("name:")
+	age=promptAndGet("age:")
+	sex=promptAndGet("sex:")
 
-# end
-# puts "program ending"
+end
+puts "program ending"
 
 
-# print file,"==",STDIN,"\n"
+print file,"==",STDIN,"\n"
 
 # ------------------------------10th day
 # grades={"jim"=>2,"kim"=>5}
