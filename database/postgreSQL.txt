@@ -1,4 +1,4 @@
-create table dress(
+rcreate table dress(
 postgres(# dress_id serial primary key,
 postgres(# name varchar(30),
 postgres(# description text,
