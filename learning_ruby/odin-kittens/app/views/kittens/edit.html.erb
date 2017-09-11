@@ -1,0 +1,9 @@
+<h1>Edit Kitten</h1>
+
+<%= form_for (@kitten) do |k| %>
+	
+	<%= render partial: 'form_kitten', locals: {kitten: k}  %>
+	<%= k.submit "Update kitten" %>
+
+<% end %>
+<%= link_to "Home Page" , kittens_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  status: false
+  kind: 1
+  desribe: MyText
+  rent_id: 1
+
+two:
+  price: 9.99
+  status: false
+  kind: 1
+  desribe: MyText
+  rent_id: 1

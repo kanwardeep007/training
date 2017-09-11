@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="">
+  <meta name="author" content="kanwar">
+  <meta name="description" content="testing html and css">
+  <meta name="keywords" content="html css">
+  <meta http-equiv="refresh" content ="30">
+  <meta name="viewport" content ="width=device-width,initial-scale=1.0" >
+  <style>
+  		body{
+  			/*background-color: pink;*/
+  			background-image: url("img1.png");
+  		}
+  </style>
+
+    <title>AirlinesSystem</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

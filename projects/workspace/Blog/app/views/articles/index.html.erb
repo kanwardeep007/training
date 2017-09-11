@@ -1,0 +1,25 @@
+
+
+<%= link_to 'new article' , controller: 'articles' ,action: 'new'%>
+
+<p>Listing Articles</p>
+
+<div>
+	<% @articles.each do |article| %>
+	<p>
+		<strong>
+			Title:
+		</strong>
+		<%= article.title%>
+		<br>
+		<strong>Text:</strong>
+		<%= article.text%>
+		<br>
+		 <%= link_to 'Show' , controller: 'articles' ,action: 'show' , id: article %>
+		 <%= link_to 'Edit' , controller: 'articles' ,action: 'edit' , id: article %>
+		 <%= link_to 'Destroy', controller: 'articles',action: 'destroy' , id: article,method: :delete,data: { confirm: 'Are you sure?' } %>
+	</p>
+
+	<%end%>
+
+</div>

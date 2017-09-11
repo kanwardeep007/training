@@ -1,0 +1,23 @@
+<h1>Show</h1>
+<h2>
+	<% if session[:user_id] %>
+	Signed up as 	<%= user_id  = session[:user_id] %>
+	<% end %>
+	
+</h2>
+Name: <%= @user.name %>
+
+<ul>
+	<% if @user.events.any? %>
+	<% @user.events.each_with_index do |e,i| %>
+		<%= number = "#{i+1}" %>
+		<li>
+			name: <%= e.name %>
+		</li>
+		<li>
+			location: <%= e.location %>
+		</li>
+	<% end %>
+	<% end %>
+</ul>
+<%= link_to "sign up" , login_path %>

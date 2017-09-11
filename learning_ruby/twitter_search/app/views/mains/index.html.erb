@@ -1,0 +1,8 @@
+<h1>Main Page</h1>
+<%= form_tag form_create_path, remote: true do %>
+  <%= text_field(:searched , :field) %>
+  <%= submit_tag ("search")%>
+<% end %>
+<div id = "tweet_area">
+
+</div>

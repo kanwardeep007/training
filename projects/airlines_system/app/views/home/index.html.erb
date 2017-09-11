@@ -1,0 +1,101 @@
+hello
+<body>
+
+
+<style>
+table,th,tb {
+	border-collapse: collapse;
+	background-color: pink;
+	color:purple;
+}
+</style>
+<h1>Hello! Good Morning yo all</h1>
+<p id ="f1p"> </p>
+<script type="text/javascript">document.getElementById("f1p").innerHTML = "hello java script"</script>
+<p><%= Time.now %></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<iframe src="https:www.facebook.com" style="border:none"></iframe>
+
+
+
+<p style = "background-color:blue; color:red;">
+<table style="width:2px;color:red;" border="1px">
+<tr>
+	<th> name 
+	</th>
+	<th>
+		Salary 
+	</th>
+	<th>On Time</th>
+	</tr>
+	
+		
+		<% @employees.each do |employee| %>
+		<tr>
+		<td>
+  			<%= employee.ename %><br />
+  		</td>
+  		<td>
+  			<%= employee.salary%>
+  		</td>
+  		<td>
+  			<%= employee.created_at %>
+  		</td>
+
+  		
+
+	<% end %>
+	
+<!-- </table>
+
+<table>
+	<tr>
+		<th>
+			name
+		</th>
+		
+			<% @employees.each do |employee| %>
+			<td>
+			employee.ename
+			</td>
+	</tr>
+</table> -->
+
+
+</p>
+
+<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
+<%= link_to "Visit our HTML tutorial", "https://www.w3schools.com/html/" %>
+<%end%>
+
+
+
+
+
+
+
+

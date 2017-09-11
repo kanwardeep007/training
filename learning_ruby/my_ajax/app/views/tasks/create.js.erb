@@ -1,0 +1,6 @@
+$('.show').hide();
+$('#new_link').show();
+// $('.incomplete_tasks').append("<%= j render(@task) %>")
+
+$('.incomplete_tasks').html("<%= escape_javascript(render @incomplete_tasks ) %>");
+$('.complete_tasks').html("<%= escape_javascript(render @complete_tasks ) %>");

@@ -1,0 +1,7 @@
+<div class = "new">
+<%= form_for @task , action: "create",remote: true do |t| %>
+  <%= t.label :task  %>
+  <%= t.text_field :task %>
+  <%= t.submit "create" %>
+<%end%>
+</div>

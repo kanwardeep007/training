@@ -1,0 +1,31 @@
+<h1>Tasks for today</h1>
+<%= link_to "new" ,tasks_new_path,id: "new_link",remote: true %>
+<br>
+
+<div class = "show">
+</div>
+
+
+<h1>Incomplete Tasks</h1>
+  <div class = "incomplete_tasks">
+    <ul>  
+      <%= render :partial => 'task', :collection => @incomplete_tasks,locals:{complete: false} %> 
+      
+    </ul>
+  </div>
+  
+<h1> Completed Tasks </h1>
+
+<div class = "complete_tasks">
+  <ul>
+      <%= render :partial => 'task', :collection => @complete_tasks ,locals: {complete: true} %> 
+  </ul>
+</div>
+
+
+<script>
+  $('.edit_task input[type=submit]').remove();
+  $('.edit_task input[type=checkbox]').click(function(){
+    $(this).parent('form').submit();
+  });
+</script>

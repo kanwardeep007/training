@@ -1,0 +1,15 @@
+<h1>All Events</h1>
+
+<% @events.each do |e| %>
+	<tr>
+		<td>
+			name = <%= "#{e.name}" %> ,
+		</td>
+		<td>
+			location = <%= "#{e.location}" %>
+		</td>
+	</tr>
+	<br>
+<% end %>
+
+<%= link_to "create new event",events_new_path %>

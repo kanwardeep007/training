@@ -1,0 +1,15 @@
+<h1> Index </h1>
+<%= link_to "create a new kitten" ,new_kitten_path%>
+<ol>
+<% @kittens.each do |k| %>
+	<li>name = <%= k.name %>,
+	age = <%= k.age %>,
+	cuteness = <%= k.cuteness %>,
+	softness = <%= k.softness %>
+		<%= link_to "View" , kitten_path(k) %>
+		<%= link_to "Edit" , edit_kitten_path(k) %>
+		<%= link_to "Delete" , kitten_path(k),method: :delete %>
+	</li>
+	
+<% end %>
+</ol>

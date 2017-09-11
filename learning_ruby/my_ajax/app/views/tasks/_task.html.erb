@@ -1,0 +1,19 @@
+<%debugger%>
+<% if complete %>
+  <li>
+    <%= form_tag tasks_incomplete_path, method: :post,class: "edit_task" do  %>
+      <%= check_box_tag "task_ids[]",task.id,task.completed,class: "hello"  %>
+      <%= task.task %>
+      <%= submit_tag "mark as incomplete"%>
+    <%end%>
+  </li>
+<%else%>
+  <li>
+    <%= form_tag tasks_complete_path, method: :post,class: "edit_task" do  %>
+      <%= check_box_tag "task_ids[]",task.id,task.completed,class: "hello"  %>
+      <%= task.task %>
+      <%= submit_tag "mark as complete"%>
+    <%end%>
+  </li>
+<%end%>
+
